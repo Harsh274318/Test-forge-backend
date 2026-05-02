@@ -68,7 +68,6 @@ export async function handleLogin(req, res) {
     if (!isPasswordMatch) {
       return customResponse(res, 400, false, "Invalid Password", "", "");
     }
-    console.log(foundUser)
     const payload = {
       email: foundUser.email,
       userName: foundUser.userName,

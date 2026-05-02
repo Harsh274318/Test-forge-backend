@@ -48,7 +48,7 @@ IMPORTANT RULES:
 - No repetition
 - Keep language clear and student-friendly
 
-⚠️ VERY IMPORTANT:
+VERY IMPORTANT:
 Return ONLY valid JSON (no extra text, no explanation)
 
 Format:

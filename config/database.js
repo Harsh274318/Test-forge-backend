@@ -1,14 +1,15 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 
-dotenv.config();
+const connectDB = async () => {
+  try {
+    await mongoose.connect(
+      `mongodb+srv://${process.env.MONGO_ID}:${process.env.MONGO_PASSWORD}@cluster0.d907rno.mongodb.net/testforge`,
+    );
+    console.log("Database connected successfully");
+  } catch (error) {
+    console.log("DB not connected", error);
+    process.exit(1);
+  }
+};
 
-mongoose.connect(
-  `mongodb+srv://${process.env.MONGO_ID}:${process.env.MONGO_PASSWORD}@cluster0.qrtev9c.mongodb.net/testforge`
-)
-.then(() => {
-  console.log("Connected to MongoDB");
-})
-.catch((err) => {
-  console.log(err);
-});
+export default connectDB;

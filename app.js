@@ -6,10 +6,10 @@ dotenv.config();
 import generateRoutes from "./route/generateRoutes.js";
 import userRoutes from "./route/userRoutes.js";
 
-import "./config/database.js";
+import connectDB from "./config/database.js";
 import submitRoutes from "./route/submitRoutes.js";
 import testRoutes from "./route/testRoutes.js";
-
+connectDB()
 
 const app = express();
 
@@ -21,10 +21,10 @@ app.get("/test", (req, res) => {
 }
 );
 
-app.use("/api",generateRoutes,submitRoutes,testRoutes);
-app.use("/api/user",userRoutes);
+app.use("/api", generateRoutes, submitRoutes, testRoutes);
+app.use("/api/user", userRoutes);
 
 const PORT = process.env.PORT || 5010;
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
   console.log("server running")
 })
